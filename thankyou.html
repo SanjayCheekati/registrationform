@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You for Registering!</h1>
+    <div id="userDetails">
+      <!-- Filled details will be displayed here -->
+    </div>
+  </div>
+  <script>
+    // Retrieve and display the form data
+    const formData = JSON.parse(localStorage.getItem("formData"));
+    if (formData) {
+      const detailsDiv = document.getElementById("userDetails");
+      detailsDiv.innerHTML = `
+        <p><strong>First Name:</strong> ${formData.firstName}</p>
+        <p><strong>Last Name:</strong> ${formData.lastName}</p>
+        <p><strong>Father's Name:</strong> ${formData.fatherName}</p>
+        <p><strong>Mother's Name:</strong> ${formData.motherName}</p>
+        <p><strong>Date of Birth:</strong> ${formData.dob}</p>
+        <p><strong>Gender:</strong> ${formData.gender}</p>
+        <p><strong>Address:</strong> ${formData.address}</p>
+        <p><strong>Qualification:</strong> ${formData.qualification}</p>
+      `;
+    } else {
+      document.getElementById("userDetails").innerText = "No details found!";
+    }
+  </script>
+</body>
+</html>
